@@ -1,0 +1,25 @@
+#gradient-canvas {
+    width:100%;
+    height:100%;
+     /*--gradient-color-1: #320E3B; 
+    --gradient-color-2: #e56399; 
+    --gradient-color-3: #7f96ff;  
+    --gradient-color-4: #a6cfd5;*/
+
+   --gradient-color-1:#022b3a ; 
+    --gradient-color-2: #1f7a8c; 
+    --gradient-color-3: #bfdbf7;  
+    --gradient-color-4:#e1e5f2 ;
+  }
+
+
+  /*#c3e4ff
+  #6ec3f4
+  #eae2ff
+  #b9beff*/
+  
+  
+  /*#210b2c
+  #55286f
+  #bc96e6
+  #d8b4e2*/
