@@ -2,7 +2,7 @@ import React from "react";
 const Home = () => {
   return (
     <div id="home" className="px-6">
-      <p className=" flex flex-col justify-start text-sm">
+      <p className=" flex flex-col justify-start text-sm mb-5">
         <span className="leading-4">Hi, I'm LADA a frontend engineer,</span>
         <span className="leading-4">with over 4 years of experience.</span>
       </p>

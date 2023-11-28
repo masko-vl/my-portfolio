@@ -45,10 +45,30 @@ export default {
         }, 
         colors: {
             background: "#dbd6d0",
-            foreground: "#2b2721",
+            foreground: {
+              100:"#69645d",
+              200:"#5d574b",
+              300:"#474639",
+              400:"#474039",
+              500:"#322d28",
+              600:"#2b2721",
+              DEFAULT: "#2b2721"
+            },
             devider: "#988e82",
             focus: "#110d04",
-            danger: "#931C17",
+            danger: {
+              100: "#da9f93",
+              200: "#c75146",
+              300: "#b23a48",
+              400: "#8c2f39",
+              500: "#a71e34",
+              600: "#a11d33",
+              700: "#85182a",
+              800: "#6e1423",
+              900: "#641220",
+              foreground: "ecc8af", // contrast color
+              DEFAULT: "#931C17"
+            },
           
         }
         },

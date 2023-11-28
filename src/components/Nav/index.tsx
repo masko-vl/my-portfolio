@@ -10,18 +10,25 @@ import {
   Switch,
   Link,
   Button,
+  cn,
 } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import CustomSwitch from "../../assets/CustomSwitch";
+import { HTMLMotionProps } from "framer-motion";
+import { IoMdMoon } from "react-icons/io";
+import { IoIosSunny } from "react-icons/io";
+export type MotionProps = HTMLMotionProps<"div">;
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { theme, setTheme } = useTheme();
+  const [isSelected, setIsSelected] = React.useState(theme === "light");
 
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       className="w-full bg-transparent px-0 flex items-center justify-between"
+      disableAnimation={false}
     >
       <NavbarBrand className="pz-0">
         <h1 className="text-2xl font-inter">
@@ -30,17 +37,17 @@ const Nav = () => {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarItem>
-          <Link href="/">
+          <Link href="/" color="foreground">
             <h3 className="text-2xl font-normal">HOME</h3>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/skills">
+          <Link href="/skills" color="foreground">
             <h3 className="text-2xl">SKILLS</h3>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/projects">
+          <Link href="/projects" color="foreground">
             <h3 className="text-2xl">PROJECTS</h3>
           </Link>
         </NavbarItem>
@@ -86,24 +93,37 @@ const Nav = () => {
             <h3 className="text-3xl font-semibold">PROJECTS</h3>
           </Button>
         </NavbarMenuItem>
-        <NavbarMenuItem className="w-1/2">
-          <CustomSwitch
+        <NavbarMenuItem className="w-full flex justify-center absolute bottom-10 left-2">
+          {/* <CustomSwitch
             defaultSelected
             value={theme}
             onChange={(e) => {
               setTheme(e.target.checked ? "light" : "dark");
             }}
-          />
-          {/* <Switch
+          /> */}
+          <Switch
             defaultSelected
             size="md"
-            value={theme}
-            onChange={(e) => {
-              setTheme(e.target.checked ? "light" : "dark");
+            isSelected={isSelected}
+            onValueChange={(e) => {
+              setTheme(e ? "light" : "dark");
+              setIsSelected(e);
             }}
-          >
-            Dark mode
-          </Switch> */}
+            startContent={<IoIosSunny />}
+            endContent={<IoMdMoon />}
+            classNames={{
+              base: "cursor-pointer p-4",
+              wrapper:
+                "p-0 h-4 overflow-visible bg-danger-100 group-data-[selected=true]:bg-danger-100 group-data-[selected=true]:text-danger-900",
+              thumb: cn(
+                "w-6 h-6 border-2 shadow-lg bg-danger-600",
+                "border-danger-700 group-data-[hover=true]:border-danger-100",
+                "group-data-[selected=true]:ml-6 ",
+                "group-data-[pressed=true]:w-7",
+                "group-data-[selected]:group-data-[pressed]:ml-4"
+              ),
+            }}
+          />
         </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>

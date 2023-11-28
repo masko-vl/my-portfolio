@@ -30,7 +30,7 @@ const CustomSwitch = (props: SwitchProps) => {
             class: [
               "w-8 h-8",
               "flex items-center justify-center",
-              "rounded-lg bg-gradient-to-r from-red-950 to-red-300 ",
+              "rounded-lg bg-gradient-to-r light:from-red-950 light:to-red-300  dark:from-purple-950 dark:to-red-300",
             ],
           })}
         >
